@@ -1,0 +1,530 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "SqlAzure swbiasqldevserver.database.windows.net swbiasqldb02dev",
+        "connectionString": "Data Source=swbiasqldevserver.database.windows.net;User ID=swbiasqltest;Persist Security Info=false;Encrypt=true;TrustServerCertificate=false;Initial Catalog=swbiasqldb02dev",
+        "impersonationMode": "impersonateServiceAccount",
+        "provider": "System.Data.SqlClient",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlAzure"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "DMA Characteristics",
+        "columns": [
+          {
+            "name": "DMA ID",
+            "dataType": "string",
+            "sourceColumn": "DMA_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "DMA Name",
+            "dataType": "string",
+            "sourceColumn": "DMA_Name",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WSZ",
+            "dataType": "string",
+            "sourceColumn": "WSZ",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WOA",
+            "dataType": "string",
+            "sourceColumn": "WOA",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "WRZ",
+            "dataType": "string",
+            "sourceColumn": "WRZ",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Area",
+            "dataType": "string",
+            "sourceColumn": "Area",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Mains Length (m)",
+            "dataType": "double",
+            "sourceColumn": "Mains_Length",
+            "formatString": "#,0",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Domestic",
+            "dataType": "int64",
+            "sourceColumn": "Domestic",
+            "formatString": "#,0",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Type A",
+            "dataType": "int64",
+            "sourceColumn": "Type_A",
+            "formatString": "#,0",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Type B",
+            "dataType": "int64",
+            "sourceColumn": "Type_B",
+            "formatString": "#,0",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Type C",
+            "dataType": "int64",
+            "sourceColumn": "Type_C",
+            "formatString": "#,0",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Type D",
+            "dataType": "int64",
+            "sourceColumn": "Type_D",
+            "formatString": "#,0",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Type E",
+            "dataType": "int64",
+            "sourceColumn": "Type_E",
+            "formatString": "#,0",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Connections",
+            "dataType": "int64",
+            "sourceColumn": "Connections",
+            "formatString": "#,0",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Stock/Non-stock",
+            "dataType": "string",
+            "sourceColumn": "Stock_NonStock",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "PCC",
+            "dataType": "double",
+            "sourceColumn": "PCC",
+            "formatString": "#,0.00",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Occupancy Rate",
+            "dataType": "double",
+            "sourceColumn": "Occupancy_Rate",
+            "formatString": "#,0.0",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Valid From",
+            "dataType": "dateTime",
+            "sourceColumn": "ValidFrom",
+            "formatString": "yyyy-MM-dd",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"yyyy-MM-dd\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Valid To",
+            "dataType": "dateTime",
+            "sourceColumn": "ValidTo",
+            "formatString": "yyyy-MM-dd",
+            "sourceProviderType": "Date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"yyyy-MM-dd\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "X",
+            "dataType": "double",
+            "sourceColumn": "X",
+            "formatString": "0.00",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "name": "Y",
+            "dataType": "double",
+            "sourceColumn": "Y",
+            "formatString": "0.00",
+            "sourceProviderType": "Decimal"
+          },
+          {
+            "type": "calculated",
+            "name": "DMA ID and Name",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": " 'DMA Characteristics'[DMA ID] &\" \"& 'DMA Characteristics'[DMA Name]"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Query",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "SELECT a.DMA_ID",
+                ", a.DMA_Name",
+                ", a.WSZ",
+                ", a.WOA",
+                ", a.WRZ",
+                ", a.Area",
+                ", a.Region",
+                ", a.Mains_Length",
+                ", a.Domestic",
+                ", a.Type_A",
+                ", a.Type_B",
+                ", a.Type_C",
+                ", a.Type_D",
+                ", a.Type_E",
+                ", a.Connections",
+                ", a.Stock_NonStock",
+                ", a.PCC",
+                ", a.Occupancy_Rate",
+                ", a.ValidFrom",
+                ", a.ValidTo",
+                ", geo.X",
+                ", geo.Y",
+                "FROM dbo.ref_gis_extract a",
+                "LEFT JOIN (",
+                "\tSELECT [name]",
+                "\t, reference",
+                "\t, AVG(X) as X",
+                "\t, AVG(Y) as Y",
+                "\tFROM dbo.ref_dma_location_TEMP2",
+                "\tGROUP BY [name], reference",
+                ") geo",
+                "ON SUBSTRING(a.DMA_ID, 1, 8) = geo.reference",
+                "AND a.DMA_NAME = UPPER(geo.[name])"
+              ],
+              "dataSource": "SqlAzure swbiasqldevserver.database.windows.net swbiasqldb02dev"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT a.DMA_ID",
+                  ", a.DMA_Name",
+                  ", a.WSZ",
+                  ", a.WOA",
+                  ", a.WRZ",
+                  ", a.Area",
+                  ", a.Region",
+                  ", a.Mains_Length",
+                  ", a.Domestic",
+                  ", a.Type_A",
+                  ", a.Type_B",
+                  ", a.Type_C",
+                  ", a.Type_D",
+                  ", a.Type_E",
+                  ", a.Connections",
+                  ", a.Stock_NonStock",
+                  ", a.PCC",
+                  ", a.Occupancy_Rate",
+                  ", a.ValidFrom",
+                  ", a.ValidTo",
+                  ", geo.X",
+                  ", geo.Y",
+                  "FROM dbo.ref_gis_extract a",
+                  "LEFT JOIN (",
+                  "\tSELECT [name]",
+                  "\t, reference",
+                  "\t, AVG(X) as X",
+                  "\t, AVG(Y) as Y",
+                  "\tFROM dbo.ref_dma_location_TEMP2",
+                  "\tGROUP BY [name], reference",
+                  ") geo",
+                  "ON SUBSTRING(a.DMA_ID, 1, 8) = geo.reference",
+                  "AND a.DMA_NAME = UPPER(geo.[name])</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Current user DMA table",
+            "expression": " USERNAME()"
+          },
+          {
+            "name": "Count DMAs Selected",
+            "expression": " DISTINCTCOUNT('DMA Characteristics'[DMA ID])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "DMA Name and ID Selected",
+            "expression": " FIRSTNONBLANK('DMA Characteristics'[DMA ID and Name], 1)"
+          },
+          {
+            "name": "DMA Last Changed",
+            "expression": " calculate(max('DMA Characteristics'[Valid From]), ALLEXCEPT('DMA Characteristics', 'DMA Characteristics'[DMA ID], 'DMA Characteristics'[DMA ID and Name]))",
+            "formatString": "yyyy-MM-dd",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"yyyy-MM-dd\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "DMA Changed in Last Month",
+            "expression": " if(month([DMA Last Changed]) = month(TODAY()),[DMA Last Changed], blank())",
+            "formatString": "yyyy-MM-dd",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"yyyy-MM-dd\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "DMA Base Data Report Title",
+            "expression": " \"DMA Base Data Report at \" & format(TODAY(), \"dd-MMM-yy\")"
+          },
+          {
+            "name": "DMA Base Data Report Footer",
+            "expression": " \"Report Created by \" & [Current user DMA table]"
+          },
+          {
+            "name": "Current Mains Length",
+            "expression": " calculate(sum('DMA Characteristics'[Mains Length (m)]), filter('DMA Characteristics', 'DMA Characteristics'[Valid From] = 'DMA Characteristics'[DMA Last Changed]))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Current Domestic Properties",
+            "expression": " calculate(sum('DMA Characteristics'[Domestic]), filter('DMA Characteristics', 'DMA Characteristics'[Valid From] = 'DMA Characteristics'[DMA Last Changed]))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Current Type A",
+            "expression": " calculate(sum('DMA Characteristics'[Type A]), filter('DMA Characteristics', 'DMA Characteristics'[Valid From] = 'DMA Characteristics'[DMA Last Changed]))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Current Type C",
+            "expression": " calculate(sum('DMA Characteristics'[Type C]), filter('DMA Characteristics', 'DMA Characteristics'[Valid From] = 'DMA Characteristics'[DMA Last Changed]))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Current Type D",
+            "expression": " calculate(sum('DMA Characteristics'[Type D]), filter('DMA Characteristics', 'DMA Characteristics'[Valid From] = 'DMA Characteristics'[DMA Last Changed]))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Current Type E",
+            "expression": " calculate(sum('DMA Characteristics'[Type E]), filter('DMA Characteristics', 'DMA Characteristics'[Valid From] = 'DMA Characteristics'[DMA Last Changed]))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Current Connections",
+            "expression": " calculate(sum('DMA Characteristics'[Connections]), filter('DMA Characteristics', 'DMA Characteristics'[Valid From] = 'DMA Characteristics'[DMA Last Changed]))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Current Type B",
+            "expression": " calculate(sum('DMA Characteristics'[Type B]), filter('DMA Characteristics', 'DMA Characteristics'[Valid From] = 'DMA Characteristics'[DMA Last Changed]))",
+            "formatString": "#,0"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Geography",
+            "levels": [
+              {
+                "name": "Area",
+                "ordinal": 1,
+                "column": "Area"
+              },
+              {
+                "name": "Region",
+                "ordinal": 0,
+                "column": "Region"
+              },
+              {
+                "name": "WSZ",
+                "ordinal": 4,
+                "column": "WSZ"
+              },
+              {
+                "name": "WOA",
+                "ordinal": 3,
+                "column": "WOA"
+              },
+              {
+                "name": "WRZ",
+                "ordinal": 2,
+                "column": "WRZ"
+              },
+              {
+                "name": "DMA ID and Name",
+                "ordinal": 5,
+                "column": "DMA ID and Name"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "SELECT a.DMA_ID",
+              ", a.DMA_Name",
+              ", a.WSZ",
+              ", a.WOA",
+              ", a.WRZ",
+              ", a.Area",
+              ", a.Region",
+              ", a.Mains_Length",
+              ", a.Domestic",
+              ", a.Type_A",
+              ", a.Type_B",
+              ", a.Type_C",
+              ", a.Type_D",
+              ", a.Type_E",
+              ", a.Connections",
+              ", a.Stock_NonStock",
+              ", a.PCC",
+              ", a.Occupancy_Rate",
+              ", a.ValidFrom",
+              ", a.ValidTo",
+              ", geo.X",
+              ", geo.Y",
+              "FROM dbo.ref_gis_extract a",
+              "LEFT JOIN (",
+              "\tSELECT [name]",
+              "\t, reference",
+              "\t, AVG(X) as X",
+              "\t, AVG(Y) as Y",
+              "\tFROM dbo.ref_dma_location_TEMP2",
+              "\tGROUP BY [name], reference",
+              ") geo",
+              "ON SUBSTRING(a.DMA_ID, 1, 8) = geo.reference",
+              "AND a.DMA_NAME = UPPER(geo.[name])"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Query"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT a.DMA_ID",
+              ", a.DMA_Name",
+              ", a.WSZ",
+              ", a.WOA",
+              ", a.WRZ",
+              ", a.Area",
+              ", a.Region",
+              ", a.Mains_Length",
+              ", a.Domestic",
+              ", a.Type_A",
+              ", a.Type_B",
+              ", a.Type_C",
+              ", a.Type_D",
+              ", a.Type_E",
+              ", a.Connections",
+              ", a.Stock_NonStock",
+              ", a.PCC",
+              ", a.Occupancy_Rate",
+              ", a.ValidFrom",
+              ", a.ValidTo",
+              ", geo.X",
+              ", geo.Y",
+              "FROM dbo.ref_gis_extract a",
+              "LEFT JOIN (",
+              "\tSELECT [name]",
+              "\t, reference",
+              "\t, AVG(X) as X",
+              "\t, AVG(Y) as Y",
+              "\tFROM dbo.ref_dma_location_TEMP2",
+              "\tGROUP BY [name], reference",
+              ") geo",
+              "ON SUBSTRING(a.DMA_ID, 1, 8) = geo.reference",
+              "AND a.DMA_NAME = UPPER(geo.[name])</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Dates Table",
+        "columns": [
+          {
+            "type": "calculatedTableColumn",
+            "name": "Date",
+            "dataType": "dateTime",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "sourceColumn": "[Date]",
+            "formatString": "yyyy-MM-dd",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"yyyy-MM-dd\" /></DateTimes></Format>"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CalculatedTable 1",
+            "source": {
+              "type": "calculated",
+              "expression": "CALENDAR(min('DMA Characteristics'[Valid From]), TODAY())"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Report Last Refreshed",
+            "expression": " Now()",
+            "formatString": "dd-MMM-yy HH:mm:ss",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"GeneralLongDateTime\" FormatString=\"dd-MMM-yy HH:mm:ss\" /></DateTimes></Format>"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
